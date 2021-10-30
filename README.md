@@ -75,3 +75,17 @@ $ brew search oneframemobile/localization-swift/localization-swift
 ```python
 $ brew install localization-swift
 ```
+
+## HomeBrew localization-swift brew run permission denied solve
+```python
+#1.0 current version
+$ sudo chmod 755 /usr/local/Cellar/localization-swift/1.0/libexec/localization-swift.sh
+
+```
+
+## HomeBrew localization-swift run on brew installed path without global env 
+```python
+#1.0 current version
+$ sh /usr/local/Cellar/localization-swift/1.0/libexec/localization-swift.sh -p Localizable.strings
+
+```
