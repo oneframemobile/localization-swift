@@ -117,7 +117,7 @@ OUTPUT_FILE_PATH="$BASE_PATH/Localization"
 
 echo $LOCALIZABLE_FILE_PATH
 
-LOCALIZABLE_COMMAND="sh /usr/local/Cellar/localization-swift/1.0/libexec/localization-swift.sh -fp "$LOCALIZABLE_FILE_PATH" -ofp "$OUTPUT_FILE_PATH
+LOCALIZABLE_COMMAND="sh /usr/local/Cellar/localization-swift/1.2/libexec/localization-swift.sh -fp "$LOCALIZABLE_FILE_PATH" -ofp "$OUTPUT_FILE_PATH
 $LOCALIZABLE_COMMAND
 
 ```
