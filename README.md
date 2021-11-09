@@ -57,6 +57,20 @@ localization/Localization-Shared+Extensions.swift
 localization/Localization-PushNotification+Extensions.swift
 ```
 
+## code-gen-lib localization module parameters with generating outside the run directory folder -ofp for full path
+```python
+sh localization-swift.sh -p modules/localization-swift/Localizable.strings -ofp /Users/***/Desktop/localization
+
+
+generated files ...
+/Users/***/Desktop/localization/Localization-General+Extensions.swift
+/Users/***/Desktop/localization/Localization-Components+Extensions.swift
+/Users/***/Desktop/localization/Localization-Pages+Extensions.swift
+/Users/***/Desktop/localization/Localization-Shared+Extensions.swift
+/Users/***/Desktop/localization/Localization-PushNotification+Extensions.swift
+```
+
+
 ## HomeBrew localization-swift installation
 The missing package manager for macOS.  Homebrew won’t install files outside its prefix, and you can place a Homebrew installation wherever you like.
 
@@ -78,14 +92,32 @@ $ brew install localization-swift
 
 ## HomeBrew localization-swift brew run permission denied solve
 ```python
-#1.0 current version
-$ sudo chmod 755 /usr/local/Cellar/localization-swift/1.0/libexec/localization-swift.sh
+#1.1 current version
+$ sudo chmod 755 /usr/local/Cellar/localization-swift/1.1/libexec/localization-swift.sh
 
 ```
 
 ## HomeBrew localization-swift run on brew installed path without global env 
 ```python
-#1.0 current version
-$ sh /usr/local/Cellar/localization-swift/1.0/libexec/localization-swift.sh -p Localizable.strings
+#1.1 current version
+$ sh /usr/local/Cellar/localization-swift/1.1/libexec/localization-swift.sh -p Localizable.strings
+
+```
+## Run Action Script at Use to XCODE Build Phase  --localization-swift
+The recommended way to use Localization-swift is to create a "Run Script" Build Phase (Xcode > Project > Targets > Your build target > Build Phases > New Run Script Phase)
+```python
+# Type a script or drag a script file from your workspace to insert its path.
+set -x
+ 
+# Get base path to project
+BASE_PATH="$PROJECT_DIR/$PROJECT_NAME"
+LOCALIZABLE_FILE="Localizable.strings"
+LOCALIZABLE_FILE_PATH="$BASE_PATH/$LOCALIZABLE_FILE"
+OUTPUT_FILE_PATH="$BASE_PATH/Localization"
+
+echo $LOCALIZABLE_FILE_PATH
+
+LOCALIZABLE_COMMAND="sh /usr/local/Cellar/localization-swift/1.0/libexec/localization-swift.sh -fp "$LOCALIZABLE_FILE_PATH" -ofp "$OUTPUT_FILE_PATH
+$LOCALIZABLE_COMMAND
 
 ```

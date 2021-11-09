@@ -23,12 +23,12 @@
 
         },
         {
-            "name": "Python: localizable-swift File with",
+            "name": "Python: localizable-swift -fp full path File with",
             "type": "python",
             "request": "launch",
             "program": "/Users/starforce/Desktop/Architecture/code gen core/localization-swift v1/localization-swift/localization-swift.py",
             "console": "integratedTerminal",
-            "args": ["-p", "config/Localizable.strings"]
+            "args": ["-fp", "/Users/starforce/Desktop/Architecture/code gen core/localization-swift v1/localization-swift/config/Localizable.strings"]
 
         },
         {

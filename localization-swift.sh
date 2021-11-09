@@ -405,7 +405,8 @@ def check_string_file_extension(string_file):
     if string_file.lower().endswith('.strings'):
         result = True
     else :
-        Log.e("** must be localizable string file ! **")
+        Log.e("** must be strings extension at localizable string file ! **")
+        Log.w("** Do not forget to use the escape character '\\' before all the space character in the folder. **")
         Log.w(string_file)
     return result
 
@@ -415,6 +416,7 @@ def checkStringFileExists(string_file):
         result = True
     else :
         Log.e("** localizable string file not found **")
+        Log.w("** Do not forget to use the escape character '\\' before all the space character in the folder. **")
         Log.w(string_file)
     return result
 

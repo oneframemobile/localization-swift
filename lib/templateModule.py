@@ -30,6 +30,7 @@ class TemplateModule(Base):
     outputRootPath = ""
     outputDirectory = ""
     isAppendOutputPath = False
+    isGenerateOutPutFullPath = False
     templateFolders = []
     fileOp = FileOperation()
 
@@ -57,8 +58,11 @@ class TemplateModule(Base):
 
     def getGeneratingOutputPath(self):
         module_directory_path = os.getcwd()
-        if self.outputDirectory != '':
-            module_directory_path += CODING.SLASH + self.outputDirectory
+        if self.isGenerateOutPutFullPath:
+            module_directory_path = self.outputDirectory
+        else:
+            if self.outputDirectory != '':
+                module_directory_path += CODING.SLASH + self.outputDirectory
         return module_directory_path
         
     def initializeTemplateFolder(self):

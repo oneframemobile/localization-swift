@@ -1,7 +1,8 @@
 {
     "python.pythonPath": "/usr/bin/python",
     "python.analysis.extraPaths": [
-        "./localization-swift"
+        "./localization-swift",
+        "./config"
     ],
     "python.testing.pytestArgs": [
         "."

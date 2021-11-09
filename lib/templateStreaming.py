@@ -230,7 +230,9 @@ class TemplateStreaming(Base):
     def getModulePath(self):
         module_path = self.fileOp.createNewPath(
             pathLocate="..",
-            folderName="modules/" + self.templateModule.name
+            # change mustache path to config
+            #folderName="modules/" + self.templateModule.name
+            folderName="config/"
         )
         return module_path
 
