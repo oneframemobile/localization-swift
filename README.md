@@ -92,15 +92,15 @@ $ brew install localization-swift
 
 ## HomeBrew localization-swift brew run permission denied solve
 ```python
-#1.1 current version
-$ sudo chmod 755 /usr/local/Cellar/localization-swift/1.1/libexec/localization-swift.sh
+#1.2 current version
+$ sudo chmod 755 /usr/local/Cellar/localization-swift/1.2/libexec/localization-swift.sh
 
 ```
 
 ## HomeBrew localization-swift run on brew installed path without global env 
 ```python
-#1.1 current version
-$ sh /usr/local/Cellar/localization-swift/1.1/libexec/localization-swift.sh -p Localizable.strings
+#1.2 current version
+$ sh /usr/local/Cellar/localization-swift/1.2/libexec/localization-swift.sh -p Localizable.strings
 
 ```
 ## Run Action Script at Use to XCODE Build Phase  --localization-swift

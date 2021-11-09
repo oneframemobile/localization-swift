@@ -352,7 +352,7 @@ def collect_execute_data(parent_obj,temp_obj = None):
 
 
 # code generation execution
-def execute(localizations,output_path = ""):
+def execute(localizations,output_path = "",is_output_full_path=False):
     if len(localizations) == 0:
         Log.e("String file parsing issue, Strings must conform to file schema, please check!")
     else:
@@ -362,7 +362,9 @@ def execute(localizations,output_path = ""):
             output_file="Localization.swift"
         )
         localizationModule.templateFiles.append(parent_struct_file)
-        
+        if is_output_full_path:
+            localizationModule.isGenerateOutPutFullPath = True
+
         # collect all child content
         for loc in localizations:
             struct_file = TemplateFile(
@@ -502,6 +504,7 @@ if len(sys.argv) >= 3:
     localizable_string_file_path_param = str(sys.argv[2])
     localizable_string_file_path = ""
     outPutPath = ""
+    is_output_full_path = False
 
     if params == "-p":
         path_name = os.getcwd()
@@ -519,6 +522,9 @@ if len(sys.argv) >= 3:
     if is_okay_string_file:
         if len(sys.argv) >= 5 and str(sys.argv[3]) == "-o":
             outPutPath = str(sys.argv[4])
+        elif len(sys.argv) >= 5 and str(sys.argv[3]) == "-ofp":
+            outPutPath = str(sys.argv[4])
+            is_output_full_path = True
 
         op = FileOperation()
         localizable_string_file_content = op.readContent(localizable_string_file_path)
@@ -578,7 +584,7 @@ if len(sys.argv) >= 3:
                             recursive_add_child(obj,parent_key=parent_key, current_key=child_obj, column_index=column_index, array_len=len(arr[:][i]),full_split=arr[:][i])
 
         
-        execute(localizable_list,output_path = outPutPath)
+        execute(localizable_list,output_path = outPutPath,is_output_full_path = is_output_full_path)
 
         #print(max_len_count)
          
@@ -594,6 +600,8 @@ else:
             Log.w("-fp /Users/***/Desktop/..")
             Log.i("you can generate output sub pat with -o")
             Log.w("-o localization")
+            Log.i("you can generate output full pat with -ofp under outside")
+            Log.w("-o /Users/***/Desktop/localization/")
 
         else:
             Log.e("must be use min. 2 parameters ")
